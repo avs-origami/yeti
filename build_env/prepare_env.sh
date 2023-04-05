@@ -11,10 +11,10 @@ export CLFS_TARGET="arm-linux-musleabi"
 export CLFS_ARCH=arm
 export CLFS_ARM_ARCH="armv6"
 
-mkdir -p ${DIST_ROOT}/cross-tools/${CLFS_TARGET}
-ln -sfv . ${DIST_ROOT}/cross-tools/${CLFS_TARGET}/usr
+mkdir -p ${CLFS}/cross-tools/${CLFS_TARGET}
+ln -sfv . ${CLFS}/cross-tools/${CLFS_TARGET}/usr
 
-mkdir -p $LFS/sources
+mkdir -p $CLFS/sources
 
 for f in $(cat $DIST_ROOT/build_env/sources.txt)
 do

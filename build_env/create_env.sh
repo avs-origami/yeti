@@ -20,7 +20,7 @@ export PATH CONFIG_SITE LC_ALL
 
 echo "Creating build environment..."
 cd $DIST_ROOT/build_env/
-pwd
 
 #bash -e build_scripts/linux-headers.sh linux-6.1.11.tar.xz
-bash -e build_scripts/binutils.sh binutils-2.40.tar.bz2
+#bash -e build_scripts/binutils.sh binutils-2.40.tar.bz2
+#bash -e build_scripts/gcc.sh gcc-12.2.0.tar.xz

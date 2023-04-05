@@ -1,0 +1,17 @@
+#!/bin/sh
+
+FILE=$1
+
+echo
+echo "Cleaning up."
+echo
+
+DIR=${FILE%%.tar.*}
+
+echo "Done processing $DIR."
+echo
+
+echo "Done processing $DIR." >> $DIST_ROOT/build_env/build_success.log
+
+cd $LFS/sources
+rm -rf $DIR

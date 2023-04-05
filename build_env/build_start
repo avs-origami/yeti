@@ -1,0 +1,19 @@
+#!/bin/sh
+
+FILE=$1
+BN=$(basename $2)
+SCRIPT=${BN%%.*}
+
+echo
+echo "Processing $SCRIPT."
+echo
+sleep 1
+
+cd $LFS/sources
+echo "Extracting files."
+tar -xf $FILE
+
+DIR=${FILE%%.tar.*}
+cd $DIR
+echo "Changed to build path (\$LFS/sources/$DIR)."
+echo

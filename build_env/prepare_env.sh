@@ -1,8 +1,11 @@
 #!/bin/bash
-echo "The 'DIST_ROOT' and 'LFS' variables must be set for this script to run. It is recommended to set them in your shell's RC file."
+echo "The 'DIST_ROOT', 'CLFS', 'CLFS_TARGET', and 'LFS_HN' variables must be set for this script to run."
+echo "It is recommended to set them in your shell's RC file. See README for more information."
 
 echo "DIST_ROOT: ${DIST_ROOT:?}"
-echo "LFS: ${LFS:?}"
+echo "CLFS: ${CLFS:?}"
+echo "CLFS_TARGET: ${CLFS_TARGET:?}"
+echo "LFS_HN: ${LFS_HN:?}"
 
 unset CFLAGS
 export CLFS_FLOAT="soft"
@@ -21,14 +24,14 @@ do
     bn=$(basename $f)
     bnp=".$bn.part"
 
-    if ! test -f $LFS/sources/$bn
+    if ! test -f $cLFS/sources/$bn
     then
-        touch $LFS/sources/$bnp
-        wget $f -O $LFS/sources/$bn
-        rm $LFS/sources/$bnp
-    elif test -f $LFS/sources/$bnp
+        touch $CLFS/sources/$bnp
+        wget $f -O $CLFS/sources/$bn
+        rm $CLFS/sources/$bnp
+    elif test -f $CLFS/sources/$bnp
     then
-        wget $f -O $LFS/sources/$bn
-        rm $LFS/sources/$bnp
+        wget $f -O $CLFS/sources/$bn
+        rm $CLFS/sources/$bnp
     fi
 done

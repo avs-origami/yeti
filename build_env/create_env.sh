@@ -23,5 +23,6 @@ cd $DIST_ROOT/build_env/
 
 #bash -e build_scripts/linux-headers.sh linux-6.1.11.tar.xz
 #bash -e build_scripts/binutils.sh binutils-2.40.tar.bz2
-#bash -e build_scripts/gcc.sh gcc-12.2.0.tar.xz
-bash -e build_scripts/musl.sh musl-1.2.3.tar.gz
+#bash -e build_scripts/gcc-1.sh gcc-12.2.0.tar.xz
+#bash -e build_scripts/musl.sh musl-1.2.3.tar.gz
+bash -e build_scripts/gcc-2.sh gcc-12.2.0.tar.xz

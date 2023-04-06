@@ -12,7 +12,7 @@ sleep 1
 
 # Set variables needed for proper execution
 set +h
-PATH=$CLFS/cross-tools/bin:$PATH
+PATH=${CLFS}/cross-tools/bin/:$PATH
 CONFIG_SITE=$CLFS/usr/share/config.site
 LC_ALL=POSIX
 SHELL=bash
@@ -25,4 +25,13 @@ cd $DIST_ROOT/build_env/
 #bash -e build_scripts/binutils.sh binutils-2.40.tar.bz2
 #bash -e build_scripts/gcc-1.sh gcc-12.2.0.tar.xz
 #bash -e build_scripts/musl.sh musl-1.2.3.tar.gz
-bash -e build_scripts/gcc-2.sh gcc-12.2.0.tar.xz
+#bash -e build_scripts/gcc-2.sh gcc-12.2.0.tar.xz
+#bash -e build_scripts/ypm.sh
+
+mkdir -pv ${CLFS}/targetfs
+
+bash -e create_filesystem.sh
+
+#cp -r ${CLFS}/cross-tools/* ${CLFS}/targetfs/
+
+bash -e finish_build.sh

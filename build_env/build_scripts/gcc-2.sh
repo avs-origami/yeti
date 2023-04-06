@@ -35,8 +35,8 @@ cd build
   --with-float=${CLFS_FLOAT} \
   --with-fpu=${CLFS_FPU}
 
-make -j$(nproc)
-make -j$(nproc) install
+make
+make install
 
 cd $DIST_ROOT/build_env
 . build_end $1

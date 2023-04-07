@@ -14,9 +14,6 @@ export CLFS_TARGET="arm-linux-musleabi"
 export CLFS_ARCH=arm
 export CLFS_ARM_ARCH="armv6"
 
-mkdir -p ${CLFS}/cross-tools/${CLFS_TARGET}
-ln -sfv . ${CLFS}/cross-tools/${CLFS_TARGET}/usr
-
 mkdir -p $CLFS/sources
 
 for f in $(cat $DIST_ROOT/build_env/sources.txt)
@@ -24,7 +21,7 @@ do
     bn=$(basename $f)
     bnp=".$bn.part"
 
-    if ! test -f $cLFS/sources/$bn
+    if ! test -f $CLFS/sources/$bn
     then
         touch $CLFS/sources/$bnp
         wget $f -O $CLFS/sources/$bn

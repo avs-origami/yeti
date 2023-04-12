@@ -32,3 +32,5 @@ do
         rm $CLFS/sources/$bnp
     fi
 done
+
+cp files/{busybox.config, linux.config} build_env/build_root/sources/

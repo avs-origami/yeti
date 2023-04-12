@@ -18,20 +18,13 @@ LC_ALL=POSIX
 SHELL=bash
 export PATH CONFIG_SITE LC_ALL
 
+### Needed Variables
+####################
+
+export ARCH=armv6zk
+
 echo "Creating build environment..."
-cd $DIST_ROOT/build_env/
+cd $DIST_ROOT/build_env/build_root
 
-##################### CROSS COMPILER #####################
-bash -e build_scripts/binutils.sh binutils-2.40.tar.bz2
-bash -e build_scripts/gcc-1.sh gcc-12.2.0.tar.xz
-bash -e build_scripts/musl.sh musl-1.2.3.tar.gz
-bash -e build_scripts/gcc-2.sh gcc-12.2.0.tar.xz
-##########################################################
-
-####################### INITRAMFS ########################
-bash -e build_scripts/headers.sh linux-1.20230317.tar.gz
-bash -e build_scripts/kernel.sh linux-1.20230317.tar.gz
-bash -e build_scripts/busybox.sh busybox-1.36.0.tar.bz2
-##########################################################
-
-bash -e build_scripts/initramfs.sh linux-1.20230317.tar.gz
+#bash -e sources/check.sh &&
+#bash -e sources/mussel.sh $ARCH --enable-linux-headers --enable-pkg-config --parallel

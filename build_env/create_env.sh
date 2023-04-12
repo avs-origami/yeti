@@ -12,19 +12,32 @@ sleep 1
 
 # Set variables needed for proper execution
 set +h
-PATH=${CLFS}/tools/bin/:$PATH
+PATH=${CLFS}/toolchain/bin/:$PATH
 CONFIG_SITE=$CLFS/usr/share/config.site
 LC_ALL=POSIX
 SHELL=bash
 export PATH CONFIG_SITE LC_ALL
 
-### Needed Variables
-####################
+### Setup
+#########
 
-export ARCH=armv6zk
-
+export MUSSEL_ARCH=armv6zk
+export TARGET=$MUSSEL_ARCH-linux-musleabihf
 echo "Creating build environment..."
 cd $DIST_ROOT/build_env/build_root
 
+### Cross compiler (mussel)
+###########################
+
 #bash -e sources/check.sh &&
-#bash -e sources/mussel.sh $ARCH --enable-linux-headers --enable-pkg-config --parallel
+#bash -e sources/mussel.sh $MUSSEL_ARCH --enable-linux-headers --enable-pkg-config --parallel
+
+### Packages
+############
+
+cd $DIST_ROOT/build_env
+
+bash -e build_scripts/musl.sh musl-1.2.3.tar.gz
+#bash -e build_scripts/gcc.sh
+#bash -e build_scripts/busybox.sh
+#bash -e build_scripts/kernel.sh

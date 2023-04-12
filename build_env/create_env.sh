@@ -12,7 +12,7 @@ sleep 1
 
 # Set variables needed for proper execution
 set +h
-PATH=${CLFS}/toolchain/bin/:$PATH
+PATH=$CLFS/toolchain/bin/:$PATH
 CONFIG_SITE=$CLFS/usr/share/config.site
 LC_ALL=POSIX
 SHELL=bash
@@ -37,7 +37,7 @@ cd $DIST_ROOT/build_env/build_root
 
 cd $DIST_ROOT/build_env
 
-bash -e build_scripts/musl.sh musl-1.2.3.tar.gz
-#bash -e build_scripts/gcc.sh
+#bash -e build_scripts/musl.sh musl-1.2.3.tar.gz
+bash -e build_scripts/gcc.sh gcc-12.2.0.tar.xz
 #bash -e build_scripts/busybox.sh
 #bash -e build_scripts/kernel.sh

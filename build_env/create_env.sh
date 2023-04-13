@@ -41,3 +41,4 @@ cd $DIST_ROOT/build_env
 #bash -e build_scripts/gcc.sh gcc-12.2.0.tar.xz
 #bash -e build_scripts/busybox.sh busybox-1.36.0.tar.bz2
 #bash -e build_scripts/kernel.sh linux-1.20230317.tar.gz
+bash -e build_scripts/bootscripts.sh bootscripts-embedded-master.tar.gz

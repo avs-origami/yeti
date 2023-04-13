@@ -47,10 +47,15 @@ cd $DIST_ROOT/build_env
 ### Setup files
 ###############
 
-bash -e build_scripts/files/mdev.sh
-bash -e build_scripts/files/profile.sh
-bash -e build_scripts/files/inittab.sh
-bash -e build_scripts/files/hosts.sh
-bash -e build_scripts/files/network.sh
+#bash -e build_scripts/files/mdev.sh
+#bash -e build_scripts/files/profile.sh
+#bash -e build_scripts/files/inittab.sh
+#bash -e build_scripts/files/hosts.sh
+#bash -e build_scripts/files/network.sh
+#bash -e build_scripts/files/filesystem.sh
 
-echo "$LFS_HN" > ${CLFS}/sysroot/etc/HOSTNAME
+#echo "$LFS_HN" > ${CLFS}/sysroot/etc/HOSTNAME
+
+### Finishing touches
+#####################
+#chown -R root:root ${CLFS}/sysroot

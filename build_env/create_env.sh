@@ -38,8 +38,19 @@ cd $DIST_ROOT/build_env/build_root
 cd $DIST_ROOT/build_env
 
 #bash -e build_scripts/musl.sh musl-1.2.3.tar.gz
-bash -e build_scripts/binutils.sh binutils-2.40.tar.bz2
+#bash -e build_scripts/binutils.sh binutils-2.40.tar.bz2
 #bash -e build_scripts/gcc.sh gcc-12.2.0.tar.xz
 #bash -e build_scripts/busybox.sh busybox-1.36.0.tar.bz2
 #bash -e build_scripts/kernel.sh linux-1.20230317.tar.gz
 #bash -e build_scripts/bootscripts.sh bootscripts-embedded-master.tar.gz
+
+### Setup files
+###############
+
+bash -e build_scripts/files/mdev.sh
+bash -e build_scripts/files/profile.sh
+bash -e build_scripts/files/inittab.sh
+bash -e build_scripts/files/hosts.sh
+bash -e build_scripts/files/network.sh
+
+echo "$LFS_HN" > ${CLFS}/sysroot/etc/HOSTNAME

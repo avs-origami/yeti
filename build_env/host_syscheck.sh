@@ -46,9 +46,10 @@ tar --version | head -n1
 makeinfo --version | head -n1  # texinfo version
 xz --version | head -n1
 
-echo Rust and Cargo are not yet needed, so failures here can be ignored
 rustc --version | head -n1
 cargo --version | head -n1
+echo -n "armv6 target for rust: "
+rustup target list | grep 'arm-unknown-linux-musleabihf (installed)' 
 
 echo 'int main(){}' > dummy.c && g++ -o dummy dummy.c
 if [ -x dummy ]

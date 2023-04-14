@@ -37,18 +37,18 @@ install it and boot from the generated root filesystem:
 === PACKAGES
 ============
 
-The Yeti Package Manager is used for package management. However, it does not come installed (yet)
-so you can use any package manager you prefer. See https://github.com/AVS-Origami/ypm for
-the Yeti Package Manager.
+The Yeti Package Manager is used for package management and is built into the system by the
+build script. However, you can use any package manager with Yeti. See https://github.com/AVS-Origami/ypm
+for more information on the Yeti Package Manager.
 
 === RESOURCES
 =============
 
 Resources used throughout this project:
 
-- Linux From Scratch (linuxfromscratch.org)
-- Cross Linux From Scratch (clfs.org)
-- Mussel (github.com/firasuke/mussel)
-- Diy Linux Guide (github.com/AgentD/diy-linux-guide)
-- PiLFS (intestinate.com/pilfs)
-- Static Linux (sta.li)
+- Linux From Scratch (https://www.linuxfromscratch.org)
+- Cross Linux From Scratch (https://clfs.org)
+- Mussel (https://github.com/firasuke/mussel)
+- Diy Linux Guide (https://github.com/AgentD/diy-linux-guide)
+- PiLFS (https://intestinate.com/pilfs)
+- Static Linux (https://sta.li)

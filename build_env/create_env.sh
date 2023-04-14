@@ -45,6 +45,7 @@ cd $DIST_ROOT/build_env
 #bash -e build_scripts/busybox.sh busybox-1.36.0.tar.bz2
 #bash -e build_scripts/kernel.sh linux-1.20230317.tar.gz
 #bash -e build_scripts/bootscripts.sh bootscripts-embedded-master.tar.gz
+bash -e build_scripts/ypm.sh ypm-0.0.2-alpha.tar.gz
 #bash -e build_scripts/wpa_supplicant.sh wpa_supplicant-2.10.tar.gz
 
 ### Setup files
@@ -54,7 +55,7 @@ cd $DIST_ROOT/build_env
 #bash -e build_scripts/files/profile.sh
 #bash -e build_scripts/files/inittab.sh
 #bash -e build_scripts/files/network.sh
-bash -e build_scripts/files/filesystem.sh
+#bash -e build_scripts/files/filesystem.sh
 #bash -e build_scripts/files/yeti-os.sh
 
 #echo "$LFS_HN" > ${CLFS}/sysroot/etc/hostname

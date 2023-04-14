@@ -1,11 +1,13 @@
 #!/bin/bash
 echo "The 'DIST_ROOT', 'CLFS', 'CLFS_TARGET', and 'LFS_HN' variables must be set for this script to run."
 echo "It is recommended to set them in your shell's RC file. See README for more information."
+echo
 
 echo "DIST_ROOT: ${DIST_ROOT:?}"
 echo "CLFS: ${CLFS:?}"
 echo "CLFS_TARGET: ${CLFS_TARGET:?}"
 echo "LFS_HN: ${LFS_HN:?}"
+echo
 
 unset CFLAGS
 export CLFS_FLOAT="soft"
@@ -33,4 +35,4 @@ do
     fi
 done
 
-cp files/{busybox.config, linux.config} build_env/build_root/sources/
+cp $DIST_ROOT/files/{busybox.config,linux.config} $DIST_ROOT/build_env/build_root/sources/

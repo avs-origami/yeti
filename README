@@ -1,1 +1,54 @@
-Yeti: tiny linux distro
+|-------------------------|     ,_____,
+| YETI OS                 |     | . . |
+|-------------------------|     | ._, |
+| A bit-sized linux       |     |-----|
+| distro for RPi zero     |    / ,   , \
+|-------------------------|    |_'   '_|
+|=~=~=~=~=~=~=~=~=~=~=~=~=|     '--'--'
+
+Yeti OS is a custom bit-sized linux distro for the RPi zero, cross-compiled
+from scratch. It includes basic tools and configuration to develop the
+system further. The scripts can be modified to compile it for other architectures.
+
+=== BUILDING
+============
+
+Before you start building, you will need to set a few environment variables:
+
+- DIST_ROOT -> this directory (root of this repository)
+- CLFS -> DIST_ROOT/build_env/build_root
+- CLFS_TARGET -> [TODO: see if this variable is even used]
+- LFS_HN -> the desired hostname for the finished system
+
+Then run build.sh.
+
+=== BOOTING
+===========
+
+The build script provided generates a root filesystem. There are a few methods to
+install it and boot from the generated root filesystem:
+
+- Install another Pi OS onto your SDCard (e.g PiLFS), and replace the root filesystem with
+  the newly built Yeti OS filesystem
+
+- This guide shows another way to boot from the root filesystem:
+  https://github.com/AgentD/diy-linux-guide/blob/master/02_kernel.md#putting-everything-on-the-raspberry-pi-and-booting-it
+
+=== PACKAGES
+============
+
+The Yeti Package Manager is used for package management. However, it does not come installed (yet)
+so you can use any package manager you prefer. See https://github.com/AVS-Origami/ypm for
+the Yeti Package Manager.
+
+=== RESOURCES
+=============
+
+Resources used throughout this project:
+
+- Linux From Scratch (linuxfromscratch.org)
+- Cross Linux From Scratch (clfs.org)
+- Mussel (github.com/firasuke/mussel)
+- Diy Linux Guide (github.com/AgentD/diy-linux-guide)
+- PiLFS (intestinate.com/pilfs)
+- Static Linux (sta.li)

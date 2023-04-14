@@ -2,11 +2,13 @@
 
 echo "The 'DIST_ROOT', 'CLFS', 'CLFS_TARGET', and 'LFS_HN' variables must be set for this script to run."
 echo "It is recommended to set them in your shell's RC file. See README for more information."
+echo
 
 echo "DIST_ROOT: ${DIST_ROOT:?}"
 echo "CLFS: ${CLFS:?}"
 echo "CLFS_TARGET: ${CLFS_TARGET:?}"
 echo "LFS_HN: ${LFS_HN:?}"
+echo
 
 sleep 1
 
@@ -52,7 +54,7 @@ cd $DIST_ROOT/build_env
 #bash -e build_scripts/files/profile.sh
 #bash -e build_scripts/files/inittab.sh
 #bash -e build_scripts/files/network.sh
-#bash -e build_scripts/files/filesystem.sh
+bash -e build_scripts/files/filesystem.sh
 #bash -e build_scripts/files/yeti-os.sh
 
 #echo "$LFS_HN" > ${CLFS}/sysroot/etc/hostname

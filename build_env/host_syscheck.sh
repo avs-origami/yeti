@@ -45,6 +45,8 @@ sed --version | head -n1
 tar --version | head -n1
 makeinfo --version | head -n1  # texinfo version
 xz --version | head -n1
+
+echo Rust and Cargo are not yet needed, so failures here can be ignored
 rustc --version | head -n1
 cargo --version | head -n1
 

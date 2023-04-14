@@ -1,10 +1,16 @@
 echo -n "Creating filesystem... "
 
 mkdir -pv ${CLFS}/sysroot/{bin,boot,dev,etc,home,lib/{firmware,modules}}
-mkdir -pv ${CLFS}/sysroot/{mnt,opt,proc,sbin,srv,sys}
+mkdir -pv ${CLFS}/sysroot/{mnt,opt,proc,sys}
 mkdir -pv ${CLFS}/sysroot/var/{cache,lib,local,lock,log,opt,run,spool}
+mkdir -pv ${CLFS}/sysroot/etc/ypm/{pkg/{musl,binutils,gcc,busybox,kernel},cache}
 install -dv -m 0750 ${CLFS}/sysroot/root
-install -dv -m 1777 ${CLFS}/sysroot/{var/,}tmp
+install -dv -m 1777 ${CLFS}/sysroot/var/tmp
+
+cd $CLFS/sysroot
+ln -svf bin sbin
+ln -svf . usr
+cd $DIST_ROOT/build_env
 
 ln -svf ${CLFS}/sysroot/proc/mounts ${CLFS}/sysroot/etc/mtab
 cat > ${CLFS}/sysroot/etc/passwd << "EOF"

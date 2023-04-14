@@ -1,3 +1,5 @@
+echo -n "Configuring /etc/profile... "
+
 cat > ${CLFS}/sysroot/etc/profile << "EOF"
 # /etc/profile
 
@@ -20,3 +22,5 @@ export EDITOR='/bin/vi'
 
 # End /etc/profile
 EOF
+
+echo "done"

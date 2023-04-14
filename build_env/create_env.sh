@@ -51,12 +51,17 @@ cd $DIST_ROOT/build_env
 #bash -e build_scripts/files/mdev.sh
 #bash -e build_scripts/files/profile.sh
 #bash -e build_scripts/files/inittab.sh
-#bash -e build_scripts/files/hosts.sh
 #bash -e build_scripts/files/network.sh
 #bash -e build_scripts/files/filesystem.sh
+#bash -e build_scripts/files/yeti-os.sh
 
-#echo "$LFS_HN" > ${CLFS}/sysroot/etc/HOSTNAME
+#echo "$LFS_HN" > ${CLFS}/sysroot/etc/hostname
 
 ### Finishing touches
 #####################
-#chown -R root:root ${CLFS}/sysroot
+
+#cp $DIST_ROOT/files/yetifetch $CLFS/sysroot/bin/yetifetch
+
+# Uncomment to change ownership of entire sysroot to root. This MUST be done
+# before booting, but could also be done once files are copied to SD card, etc.
+# chown -R root:root ${CLFS}/sysroot

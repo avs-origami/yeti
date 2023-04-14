@@ -1,3 +1,5 @@
+echo -n "Creating filesystem... "
+
 mkdir -pv ${CLFS}/sysroot/{bin,boot,dev,etc,home,lib/{firmware,modules}}
 mkdir -pv ${CLFS}/sysroot/{mnt,opt,proc,sbin,srv,sys}
 mkdir -pv ${CLFS}/sysroot/var/{cache,lib,local,lock,log,opt,run,spool}
@@ -30,3 +32,24 @@ EOF
 
 touch ${CLFS}/sysroot/var/log/lastlog
 chmod -v 664 ${CLFS}/sysroot/var/log/lastlog
+
+cat > ${CLFS}/sysroot/etc/fstab << "EOF"
+# Begin /etc/fstab
+
+# file system  mount-point  type     options                     dump  fsck
+#                                                                      order
+
+/dev/mmcblk0p1 /boot        vfat     defaults                    0     1
+/dev/mmcblk0p2 /            ext4     defaults,noatime,nodiratime 0     2
+#/swapfile     swap         swap     pri=1                       0     0
+proc           /proc        proc     nosuid,noexec,nodev         0     0
+sysfs          /sys         sysfs    nosuid,noexec,nodev         0     0
+devpts         /dev/pts     devpts   gid=5,mode=620              0     0
+tmpfs          /run         tmpfs    defaults                    0     0
+devtmpfs       /dev         devtmpfs mode=0755,nosuid            0     0
+tmpfs          /dev/shm     tmpfs    nosuid,nodev                0     0
+
+# End /etc/fstab
+EOF
+
+echo "done"

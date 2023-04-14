@@ -1,3 +1,5 @@
+echo -n "Configuring mdev... "
+
 cat > ${CLFS}/sysroot/etc/mdev.conf<< "EOF"
 # /etc/mdev/conf
 
@@ -105,3 +107,5 @@ hpilo!(.*)      root:root 0660 =hpilo/%1
 # xen stuff
 xvd[a-z]        root:root 0660 */lib/mdev/xvd_links
 EOF
+
+echo "done"

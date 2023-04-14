@@ -1,3 +1,5 @@
+echo -n "Configuring inittab... "
+
 cat > ${CLFS}/sysroot/etc/inittab<< "EOF"
 # /etc/inittab
 
@@ -18,3 +20,5 @@ tty6::respawn:/sbin/getty 38400 tty6
 ::shutdown:/etc/rc.d/shutdown
 ::ctrlaltdel:/sbin/reboot
 EOF
+
+echo "done"

@@ -35,4 +35,6 @@ do
     fi
 done
 
-cp $DIST_ROOT/files/{busybox.config,linux.config} $DIST_ROOT/build_env/build_root/sources/
+cp $DIST_ROOT/files/{busybox.config,linux.config} $CLFS/sources/
+cp $CLFS/sources/v0.0.2-alpha.tar.gz $CLFS/sources/ypm-0.0.2-alpha.tar.gz
+cp $CLFS/sources/1.20230317.tar.gz $CLFS/sources/linux-1.20230317.tar.gz

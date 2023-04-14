@@ -20,7 +20,7 @@ Before you start building, you will need to set a few environment variables:
 - CLFS_TARGET -> [TODO: see if this variable is even used]
 - LFS_HN -> the desired hostname for the finished system
 
-Then run build.sh.
+It is recommended to set these in your shell's RC file. Then run build.sh.
 
 === BOOTING
 ===========
@@ -34,10 +34,26 @@ install it and boot from the generated root filesystem:
 - This guide shows another way to boot from the root filesystem:
   https://github.com/AgentD/diy-linux-guide/blob/master/02_kernel.md#putting-everything-on-the-raspberry-pi-and-booting-it
 
-=== PACKAGES
-============
+=== INSTALLED PACKAGES
+======================
 
-The Yeti Package Manager is used for package management and is built into the system by the
+Yeti OS comes with the following packages installed:
+
+- musl
+- binutils
+- gcc
+- busybox
+- linux
+- ypm
+
+None of the binaries are stripped during the build process. Stripping binaries can reduce the
+size of the final system. Additionally, any binaries beginning with `armv6zk-linux-musleabihf-`
+can be safely removed. These are binaries used in cross-compilation and are not useful on the final system.
+
+=== PACKAGE MAANGEMENT
+======================
+
+The Yeti Package Manager (YPM) is used for package management and is built into the system by the
 build script. However, you can use any package manager with Yeti. See https://github.com/AVS-Origami/ypm
 for more information on the Yeti Package Manager.
 

@@ -1,21 +1,21 @@
-#!/bin/bash
+#!/bin/sh
 userhost=$(whoami)@$(hostname)
 distro=$(cat /etc/os-release | grep PRETTY_NAME | sed 's/PRETTY_NAME="//g' | sed 's/"//g')
 kernel=$(uname -r)
-memtotal=$(/usr/bin/free -m | grep Mem | sed 's/Mem:            //g' | sed 's/        / /g' | cut -f1 --delimiter=' ')
-memused=$(/usr/bin/free -m | grep Mem | sed 's/Mem:            //g' | sed 's/        / /g' | cut -f2 --delimiter=' ')
+memtotal=$(/usr/bin/free -m | grep ^Mem | tr -s ' ' | cut -d ' ' -f2)
+memused=$(/usr/bin/free -m | grep ^Mem | tr -s ' ' | cut -d ' ' -f3)
 packages=$(expr $(ls -l /etc/ypm/pkg | wc -l ) - 1)
-uptime=$(uptime -p | sed 's/up //g')
-shell=$(echo -e $SHELL | sed 's|/usr/bin/||g')
+uptime=$(uptime | cut -f2 -d' ')
+shell=$(echo -e $SHELL | sed 's|/usr/bin/||g' | sed 's|/bin/||g')
 
 echo -e
 
-echo -e "   ,_____,     \e[0m$userhost\e[0m"
-echo -e "   | . . |     \e[91mos          $distro\e[0m"
-echo -e "   | ._, |     \e[92mkernel      $kernel\e[0m"
-echo -e "   |-----|     \e[93mmem         $memtotal / $memused\e[0m"
-echo -e "  / ,   , \    \e[94mpackages    $packages\e[0m"
-echo -e "  |_'   '_|    \e[95muptime      $uptime\e[0m"
-echo -e "   '--'--'     \e[96mshell       $shell\e[0m"
+echo -e "   \e[90m,\e[0m_____\e[90m,     \e[0m$userhost\e[0m"
+echo -e "   \e[0m| \e[94m. . \e[0m|     \e[91mos          $distro\e[0m"
+echo -e "   \e[0m| \e[90m._, \e[0m|     \e[92mkernel      $kernel\e[0m"
+echo -e "   \e[0m|\e[90m-----\e[0m|     \e[93mmem         $memused / $memtotal\e[0m"
+echo -e "  \e[0m/ \e[90m,   , \e[0m\    \e[94mpackages    $packages\e[0m"
+echo -e "  \e[0m|\e[94m_\e[90m'   '\e[94m_\e[0m|    \e[95muptime      $uptime\e[0m"
+echo -e "   \e[0m'\e[94m--\e[37m^\e[94m--\e[0m'     \e[96mshell       $shell\e[0m"
 
 echo -e

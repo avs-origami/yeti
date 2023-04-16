@@ -1,7 +1,10 @@
 #!/bin/bash
 . build_start $1 $0
 
-cp $DIST_ROOT/files/linux.config .config
+make mrproper
+#cp $DIST_ROOT/files/linux.config .config
+make ARCH="arm" CROSS_COMPILE="${TARGET}-" bcmrpi_defconfig
+#make ARCH="arm" CROSS_COMPILE="${TARGET}-" menuconfig
 sed -i ".config" -e 's,^CONFIG_CROSS_COMPILE=.*,CONFIG_CROSS_COMPILE="'$TARGET'-",'
 
 make -j$(nproc) ARCH="arm" CROSS_COMPILE="${TARGET}-" oldconfig

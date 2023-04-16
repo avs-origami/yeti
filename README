@@ -4,7 +4,7 @@
 | A bit-sized linux       |     |-----|
 | distro for RPi zero     |    / ,   , \
 |-------------------------|    |_'   '_|
-|=~=~=~=~=~=~=~=~=~=~=~=~=|     '--'--'
+|=~=~=~=~=~=~=~=~=~=~=~=~=|     '--^--'
 
 Yeti OS is a custom bit-sized linux distro for the RPi zero, cross-compiled
 from scratch. It includes basic tools and configuration to develop the
@@ -25,14 +25,16 @@ It is recommended to set these in your shell's RC file. Then run build.sh.
 === BOOTING
 ===========
 
-The build script provided generates a root filesystem. There are a few methods to
-install it and boot from the generated root filesystem:
+The build script provided generates a root filesystem. To boot into this filesystem, you will need an
+SD card with two partitions. Copy the boot directory of the new rootfs into the first partition along with
+some other files:
 
-- Install another Pi OS onto your SDCard (e.g PiLFS), and replace the root filesystem with
-  the newly built Yeti OS filesystem
+- boot/dts/*.dtb -> /boot
+- boot/dts/overlays/*.dtb* -> /boot/overlays
+- boot/zImage -> /boot/kernel.img
+- files/* -> /boot
 
-- This guide shows another way to boot from the root filesystem:
-  https://github.com/AgentD/diy-linux-guide/blob/master/02_kernel.md#putting-everything-on-the-raspberry-pi-and-booting-it
+Then, copy the root filesystem into the second partition.
 
 === INSTALLED PACKAGES
 ======================

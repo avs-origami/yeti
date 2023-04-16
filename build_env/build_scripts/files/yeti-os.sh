@@ -2,7 +2,7 @@ echo -n "Applying Yeti OS specific customizations... "
 
 cat > $CLFS/sysroot/etc/os-release << "EOF"
 NAME="Yeti OS"
-VERSION="0.1.0"
+VERSION="0.1.1"
 ID=yeti
 PRETTY_NAME="Yeti OS"
 VERSION_CODENAME="sodium"
@@ -10,13 +10,13 @@ EOF
 
 cat > $CLFS/sysroot/etc/lsb-release << "EOF"
 DISTRIB_ID="Yeti OS"
-DISTRIB_RELEASE="0.1.0"
+DISTRIB_RELEASE="0.1.1"
 DISTRIB_CODENAME="sodium"
 DISTRIB_DESCRIPTION="Bit-sized linux"
 EOF
 
 cat > $CLFS/sysroot/etc/issue << "EOF"
-Yeti OS 0.1.0
+Yeti OS 0.1.1
 EOF
 
 cat > $CLFS/sysroot/etc/rc.d/startup << "EOF"

@@ -62,7 +62,7 @@ echo "$LFS_HN" > ${CLFS}/sysroot/etc/hostname
 ### Finishing touches
 #####################
 
-cp $DIST_ROOT/files/yetifetch $CLFS/sysroot/bin/yetifetch
+cp $DIST_ROOT/extras/yetifetch $CLFS/sysroot/bin/yetifetch
 
 # Uncomment to change ownership of entire sysroot to root. This MUST be done
 # before booting, but could also be done once files are copied to SD card, etc.

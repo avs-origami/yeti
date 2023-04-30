@@ -2,7 +2,7 @@ echo -n "Applying Yeti OS specific customizations... "
 
 cat > $CLFS/sysroot/etc/os-release << "EOF"
 NAME="Yeti OS"
-VERSION="0.1.1"
+VERSION="0.2.0"
 ID=yeti
 PRETTY_NAME="Yeti OS"
 VERSION_CODENAME="sodium"
@@ -10,13 +10,13 @@ EOF
 
 cat > $CLFS/sysroot/etc/lsb-release << "EOF"
 DISTRIB_ID="Yeti OS"
-DISTRIB_RELEASE="0.1.1"
+DISTRIB_RELEASE="0.2.0"
 DISTRIB_CODENAME="sodium"
 DISTRIB_DESCRIPTION="Bit-sized linux"
 EOF
 
 cat > $CLFS/sysroot/etc/issue << "EOF"
-Yeti OS 0.1.1
+Yeti OS 0.2.0
 EOF
 
 cat > $CLFS/sysroot/etc/rc.d/startup << "EOF"
@@ -102,6 +102,10 @@ check_status
 
 echo -n "Setting up interface lo: "
 ifconfig lo up 127.0.0.1
+check_status
+
+echo -n "Setting up interface wlan0: "
+ifup wlan0
 check_status
 
 echo "Running start scripts."

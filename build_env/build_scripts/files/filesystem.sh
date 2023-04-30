@@ -3,7 +3,7 @@ echo -n "Creating filesystem... "
 mkdir -pv ${CLFS}/sysroot/{bin,boot,dev,etc,home,lib/{firmware,modules}}
 mkdir -pv ${CLFS}/sysroot/{mnt,opt,proc,sys,tmp}
 mkdir -pv ${CLFS}/sysroot/var/{cache,lib,local,lock,log,opt,run,spool}
-mkdir -pv ${CLFS}/sysroot/etc/ypm/{pkg/{musl,binutils,gcc,busybox,kernel,ypm},cache}
+mkdir -pv ${CLFS}/sysroot/etc/ypm/{pkg/{musl,binutils,gcc,busybox,kernel,ypm, make, wpa_supplicant},cache}
 install -dv -m 0750 ${CLFS}/sysroot/root
 install -dv -m 1777 ${CLFS}/sysroot/var/tmp
 

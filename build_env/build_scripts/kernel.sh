@@ -6,8 +6,9 @@ make mrproper
 make ARCH="arm" CROSS_COMPILE="${TARGET}-" bcmrpi_defconfig
 #make ARCH="arm" CROSS_COMPILE="${TARGET}-" menuconfig
 sed -i ".config" -e 's,^CONFIG_CROSS_COMPILE=.*,CONFIG_CROSS_COMPILE="'$TARGET'-",'
+sed -i 's/=m/=y/g' .config
 
-make -j$(nproc) ARCH="arm" CROSS_COMPILE="${TARGET}-" oldconfig
+#make -j$(nproc) ARCH="arm" CROSS_COMPILE="${TARGET}-" oldconfig
 make -j$(nproc) ARCH="arm" CROSS_COMPILE="${TARGET}-" zImage dtbs modules
 
 mkdir -pv $CLFS/sysroot/boot

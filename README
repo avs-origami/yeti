@@ -47,6 +47,8 @@ Yeti OS comes with the following packages installed:
 - busybox
 - linux
 - ypm
+- make
+- wpa_supplicant
 
 None of the binaries are stripped during the build process. Stripping binaries can reduce the
 size of the final system. Additionally, any binaries beginning with `armv6zk-linux-musleabihf-`

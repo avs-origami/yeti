@@ -46,6 +46,8 @@ bash -e build_scripts/busybox.sh busybox-1.36.0.tar.bz2
 bash -e build_scripts/kernel.sh linux-1.20230317.tar.gz
 bash -e build_scripts/bootscripts.sh bootscripts-embedded-master.tar.gz
 bash -e build_scripts/ypm.sh ypm-0.0.2-alpha.tar.gz
+bash -e build_scripts/make.sh make-4.4.tar.gz
+bash -e build_scripts/wpa_supplicant.sh wpa_supplicant-2.10.tar.gz
 
 ### Setup files
 ###############
@@ -62,7 +64,7 @@ echo "$LFS_HN" > ${CLFS}/sysroot/etc/hostname
 ### Finishing touches
 #####################
 
-cp $DIST_ROOT/extras/yetifetch $CLFS/sysroot/bin/yetifetch
+#cp $DIST_ROOT/files/yetifetch $CLFS/sysroot/bin/yetifetch
 
 # Uncomment to change ownership of entire sysroot to root. This MUST be done
 # before booting, but could also be done once files are copied to SD card, etc.
